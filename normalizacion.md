@@ -90,4 +90,5 @@ Esto permite que:
 
 La normalización no cambia la forma de la señal; solo ajusta su escala para hacerla comparable.
 En este caso al crecer de la misma manera ambas quedan superpuestas. 
+
 <img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/5011e5a9-5421-4b5f-b2a7-388d40ee2414" />
