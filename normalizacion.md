@@ -1,5 +1,5 @@
 # Normalización de Datos  
-### Diferencias entre Rangos Dinámicos y Rangos Fijos
+### Definicion de la normalizacion
 
 La normalización es una técnica que transforma valores de diferentes escalas a una escala común, normalmente entre 0 y 1.  
 Esto facilita el análisis, la comparación y el procesamiento, especialmente en áreas como machine learning, señales y control.
