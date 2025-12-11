@@ -30,13 +30,40 @@ plt.grid(True)                          # Cuadrícula para facilitar lectura
 plt.show()
 
 ```
-<img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/39c3fa9d-7517-4134-8822-dc804fdc0c93" />
+
+<img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/63255dde-8ed0-4d84-9ce7-d224fe52deef" />
+
 
 **2. Tanh (tanh(x))**  
 - Rango: (-1, 1)  
 - Uso típico: capas ocultas centradas en cero  
 - Ventajas: mejor que sigmoide para redes profundas  
 - Desventajas: también sufre saturación
+```python
+# Gráfica de la función tanh
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generación de valores en el eje x
+x = np.linspace(-6, 6, 100)
+
+# Cálculo de la función tanh
+# Fórmula: tanh(x)
+tanh = np.tanh(x)
+
+# Graficar la función tanh
+plt.plot(x, tanh)
+plt.xlabel('x')                       # Etiqueta del eje x
+plt.ylabel('Función tanh')            # Etiqueta del eje y
+plt.title('Función tanh')             # Título de la gráfica
+plt.grid(True)                        # Cuadrícula para facilitar lectura
+
+# Mostrar la gráfica
+plt.show()
+```
+  <img width="587" height="455" alt="image" src="https://github.com/user-attachments/assets/c93dd512-2269-46b4-82e7-c6358d206f57" />
+
 # Gráfica de la función ReLU
 **3. ReLU (max(0, x))**  
 - Rango: [0, ∞)  
