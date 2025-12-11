@@ -141,40 +141,13 @@ xn_norm = (xn - min_vals) / (max_vals - min_vals)
 
 print("\nDatos normalizados entre 0 y 1:\n", xn_norm)
 ```
-## Datos originales
+## Resumen de Normalización de Múltiples Entradas
 
-| Edad | Ingresos |
-|------|----------|
-| 20   | 6000     |
-| 35   | 40000    |
-| 29   | 12000    |
-| 50   | 35000    |
+### Datos Originales | Mínimos | Máximos | Datos Normalizados
+| Edad | Ingresos | Min Edad | Min Ingresos | Max Edad | Max Ingresos | Edad (norm) | Ingresos (norm) |
+|------|----------|----------|--------------|----------|--------------|--------------|------------------|
+| 20   | 6000     | 20       | 6000         | 50       | 40000        | 0.00         | 0.00             |
+| 35   | 40000    | 20       | 6000         | 50       | 40000        | 0.50         | 1.00             |
+| 29   | 12000    | 20       | 6000         | 50       | 40000        | 0.30         | 0.1875           |
+| 50   | 35000    | 20       | 6000         | 50       | 40000        | 1.00         | 0.875            |
 
----
-
-## Mínimos por columna
-
-| Variable | Mínimo |
-|----------|--------|
-| Edad     | 20     |
-| Ingresos | 6000   |
-
----
-
-## Máximos por columna
-
-| Variable | Máximo |
-|----------|--------|
-| Edad     | 50     |
-| Ingresos | 40000  |
-
----
-
-## Datos normalizados entre 0 y 1
-
-| Edad (norm) | Ingresos (norm) |
-|-------------|------------------|
-| 0.00        | 0.00             |
-| 0.50        | 1.00             |
-| 0.30        | 0.1875           |
-| 1.00        | 0.875            |
