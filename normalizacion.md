@@ -17,3 +17,39 @@ El factor de normalización se define como:
 $$
 \text{factor} = \frac{1}{x_{\max} - x_{\min}}
 $$
+
+---
+
+# Demostracion del factor denormalizacion
+```python
+import numpy as np 
+import matplotlib.pyplot as plt
+#Rango de pixel 
+pixel = np.linspace(0,255,100)
+#rngo de voltajes
+voltajes = np.linspace(0,5,100)
+
+#obtencion de los valores minimos de cada uno de los parametros
+pixelmin = np.min(pixel)
+voltajesmin = np.min(voltajes)
+
+#obtecion de los valores maximos de voltaje
+pixelmax = np.max(pixel)
+voltajesmax = np.max(voltajes)
+
+##facoctor de la normalizacion
+factor_pixel = 1 / (pixelmax - pixelmin)
+factor_voltaje = 1 / (voltajesmax - voltajesmin)
+#creacion de los valores normalizados
+pixel_normalizado = (pixel - pixelmin) * factor_pixel
+voltajes_normalizados = (voltajes - voltajesmin) * factor_voltaje
+
+print("Factor de normalización pixel:", factor_pixel)
+print("Factor de normalización voltaje:", factor_voltaje)
+```
+### Salida del programa
+
+```txt
+Factor de normalización pixel: 0.00392156862745098
+Factor de normalización voltaje: 0.2
+```
