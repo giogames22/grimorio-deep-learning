@@ -77,3 +77,17 @@ plt.legend()
 plt.show()
 ```
 <img width="571" height="455" alt="image" src="https://github.com/user-attachments/assets/a897fe63-117b-4b02-b310-df1422594241" />
+
+---
+### ¿Qué pasa cuando normalizamos?
+
+Al normalizar, ambas señales se transforman al mismo rango (0 a 1).  
+Esto permite que:
+
+- Las dos curvas puedan **verse completas** en la misma gráfica.  
+- Sea posible **comparar sus formas** sin que una “aplasté” a la otra.  
+- Ambas variables tengan **igual peso visual**, aunque tengan unidades distintas.
+
+La normalización no cambia la forma de la señal; solo ajusta su escala para hacerla comparable.
+En este caso al crecer de la misma manera ambas quedan superpuestas. 
+<img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/5011e5a9-5421-4b5f-b2a7-388d40ee2414" />
