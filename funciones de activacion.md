@@ -12,24 +12,26 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Generación de valores para el eje x
-# (pueden ser más puntos para una curva más suave)
-x = np.array([-2, -1, 0, 1, 2])
+# Generación de valores en el eje x
+# np.linspace(inicio, fin, cantidad_de_puntos)
+x = np.linspace(-6, 6, 100)
 
-# Cálculo de la función sigmoide para cada valor de x
+# Cálculo de la función sigmoide
 # Fórmula: σ(x) = 1 / (1 + e^(-x))
 sigmoid = 1 / (1 + np.exp(-x))
 
-# Configuración de la gráfica
-plt.plot(x, sigmoid, marker='o')   # Línea con marcadores en cada punto
-plt.xlabel('x')                    # Etiqueta del eje x
-plt.ylabel('Función sigmoide')     # Etiqueta del eje y
-plt.title('Gráfica de la función sigmoide')  # Título opcional
-plt.grid(True)                     # Mostrar cuadrícula para mejor lectura
+# Graficar la funcións
+plt.plot(x, sigmoid)
+plt.xlabel('x')                         # Etiqueta del eje x
+plt.ylabel('Función sigmoide')          # Etiqueta del eje y
+plt.title('Función Sigmoide')           # Título de la gráfica
+plt.grid(True)                          # Cuadrícula para facilitar lectura
 
-# Mostrar gráfica en pantalla
+# Mostrar la gráfica
 plt.show()
+
 ```
+<img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/39c3fa9d-7517-4134-8822-dc804fdc0c93" />
 
 **2. Tanh (tanh(x))**  
 - Rango: (-1, 1)  
