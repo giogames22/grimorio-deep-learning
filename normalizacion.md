@@ -102,7 +102,7 @@ Si no normalizamos cada entrada por separado, los valores con escalas más grand
 Por eso, se realiza la normalización **columna por columna**, aplicando:
 
 $$
-\text{x_{norm}} = \frac{x - x_{min}}{x_{max} - x_{min}}
+x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
 $$
 
 Esto garantiza que **todas las entradas queden entre 0 y 1**, permitiendo:
