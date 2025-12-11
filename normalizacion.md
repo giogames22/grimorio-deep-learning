@@ -113,3 +113,68 @@ Esto garantiza que **todas las entradas queden entre 0 y 1**, permitiendo:
 
 Cada columna tiene **su propio mínimo y máximo**, por lo que cada variable se normaliza independientemente.
 
+```python
+import numpy as np
+
+# Matriz de datos:
+# Columna 0 = Edad
+# Columna 1 = Ingresos
+xn = np.array([
+    [20, 6000],
+    [35, 40000],
+    [29, 12000],
+    [50, 35000]
+])
+print("Datos originales:\n", xn)
+
+# 1. Obtener el valor mínimo de cada columna (edad mínima, ingreso mínimo)
+min_vals = xn.min(axis=0)
+print("\nMínimos por columna (edad, ingresos):\n", min_vals)
+
+# 2. Obtener el valor máximo de cada columna (edad máxima, ingreso máximo)
+max_vals = xn.max(axis=0)
+print("\nMáximos por columna (edad, ingresos):\n", max_vals)
+
+# 3. Normalizar usando la fórmula:
+#    x_normalizado = (x - min) / (max - min)
+xn_norm = (xn - min_vals) / (max_vals - min_vals)
+
+print("\nDatos normalizados entre 0 y 1:\n", xn_norm)
+```
+## Datos originales
+
+| Edad | Ingresos |
+|------|----------|
+| 20   | 6000     |
+| 35   | 40000    |
+| 29   | 12000    |
+| 50   | 35000    |
+
+---
+
+## Mínimos por columna
+
+| Variable | Mínimo |
+|----------|--------|
+| Edad     | 20     |
+| Ingresos | 6000   |
+
+---
+
+## Máximos por columna
+
+| Variable | Máximo |
+|----------|--------|
+| Edad     | 50     |
+| Ingresos | 40000  |
+
+---
+
+## Datos normalizados entre 0 y 1
+
+| Edad (norm) | Ingresos (norm) |
+|-------------|------------------|
+| 0.00        | 0.00             |
+| 0.50        | 1.00             |
+| 0.30        | 0.1875           |
+| 1.00        | 0.875            |
