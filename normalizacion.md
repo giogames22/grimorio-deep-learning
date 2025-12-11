@@ -93,6 +93,7 @@ En este caso al crecer de la misma manera ambas quedan superpuestas.
 
 <img width="567" height="455" alt="image" src="https://github.com/user-attachments/assets/5011e5a9-5421-4b5f-b2a7-388d40ee2414" />
 
+---
 ### Normalización con múltiples entradas
 
 Cuando trabajamos con varios parámetros al mismo tiempo (por ejemplo: edad, ingresos, voltaje, temperatura, pixeles, etc.), cada uno tiene **unidades y escalas diferentes**.  
@@ -100,9 +101,9 @@ Si no normalizamos cada entrada por separado, los valores con escalas más grand
 
 Por eso, se realiza la normalización **columna por columna**, aplicando:
 
-\[
-x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
-\]
+$$
+\x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
+$$
 
 Esto garantiza que **todas las entradas queden entre 0 y 1**, permitiendo:
 
