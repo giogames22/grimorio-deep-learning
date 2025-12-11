@@ -151,3 +151,134 @@ print("\nDatos normalizados entre 0 y 1:\n", xn_norm)
 | 29   | 12000    | 20       | 6000         | 50       | 40000        | 0.30         | 0.1875           |
 | 50   | 35000    | 20       | 6000         | 50       | 40000        | 1.00         | 0.875            |
 
+
+<img width="453" height="385" alt="image" src="https://github.com/user-attachments/assets/a2351f3c-8e37-4c96-aee4-62ba82492074" />
+
+---
+### ¿Qué hace la normalización dinámica?
+
+La normalización dinámica ajusta cada característica usando **el mínimo y el máximo reales del conjunto de datos**.  
+Así, cada columna se transforma para quedar entre **0 y 1**, sin importar sus unidades originales.
+
+Esto permite:
+- Comparar variables con escalas muy distintas (por ejemplo, edad vs ingresos).
+- Evitar que valores grandes dominen a valores pequeños.
+- Adaptarse automáticamente a cualquier conjunto de datos, porque siempre calcula nuevos mínimos y máximos.
+
+```python
+import numpy as np
+
+# Datos: [Edad, Ingreso]
+xn = np.array([
+    [20, 6000],
+    [35, 40000],
+    [29, 12000],
+    [50, 35000]
+])
+
+print("Datos originales:\n", xn)
+
+# Normalización con rangos dinámicos (del dataset)
+min_dyn = xn.min(axis=0)
+max_dyn = xn.max(axis=0)
+
+print("\nMínimos dinámicos:", min_dyn)
+print("Máximos dinámicos:", max_dyn)
+
+# Normalización
+xn_norm_dynamic = (xn - min_dyn) / (max_dyn - min_dyn)
+
+print("\nNormalización dinámica (0 a 1):\n", xn_norm_dynamic)
+```
+```txt
+Datos originales:
+ [[   20  6000]
+ [   35 40000]
+ [   29 12000]
+ [   50 35000]]
+
+Mínimos dinámicos:
+ [   20  6000]
+
+Máximos dinámicos:
+ [   50 40000]
+
+Normalización dinámica (0 a 1):
+ [[0.000 0.000]
+ [0.500 1.000]
+ [0.300 0.176]
+ [1.000 0.853]]
+```
+
+---
+### ¿Qué es la normalización fija?
+
+La normalización fija consiste en escalar los datos usando **rangos definidos por el usuario**, no por los valores reales del conjunto de datos.  
+Es decir, tú estableces manualmente el mínimo y el máximo permitidos para cada característica (por ejemplo, edad de 20 a 65, ingresos de 5000 a 50000).
+
+### ¿Qué implica?
+
+- Todos los datos se llevan a una escala entre 0 y 1 **siempre que estén dentro del rango fijado**.
+- Si un dato cae **afuera del rango**, su normalización puede ser:
+  - **menor que 0** (si es menor al mínimo)
+  - **mayor que 1** (si supera el máximo)
+
+### ¿Para qué sirve?
+
+- Útil cuando trabajas con sensores, modelos o sistemas que **tienen un rango conocido y fijo**.
+- Mantiene una escala constante sin importar cómo cambien los datos.
+- Permite comparar nuevas entradas contra un estándar establecido.
+
+### Diferencia clave vs normalización dinámica
+
+- **Normalización dinámica:** el rango se calcula usando tus propios datos.
+- **Normalización fija:** el rango lo defines tú y no cambia, aunque tus datos sí cambien.
+
+```python
+import numpy as np
+
+# Datos: [Edad, Ingreso]
+xn = np.array([
+    [20, 6000],
+    [35, 40000],
+    [29, 12000],
+    [50, 35000]
+])
+
+print("Datos originales:\n", xn)
+
+# Rangos fijos establecidos
+range_age = [20, 65]          # Mín y máx posibles de edad
+range_income = [5000, 50000]  # Mín y máx posibles de ingresos
+
+min_fixed = np.array([range_age[0], range_income[0]])
+max_fixed = np.array([range_age[1], range_income[1]])
+
+print("\nMínimos fijos:", min_fixed)
+print("Máximos fijos:", max_fixed)
+
+# Normalización con valores fijos
+xn_norm_fixed = (xn - min_fixed) / (max_fixed - min_fixed)
+
+print("\nNormalización con rangos fijos:\n", xn_norm_fixed)
+```
+```txt
+Datos originales:
+ [[   20  6000]
+ [   35 40000]
+ [   29 12000]
+ [   50 35000]]
+
+Mínimos fijos:
+ [   20  5000]
+
+Máximos fijos:
+ [   65 50000]
+
+Normalización con rangos fijos:
+ [[0.000 0.022]
+ [0.333 0.778]
+ [0.200 0.156]
+ [0.667 0.667]]
+```
+
